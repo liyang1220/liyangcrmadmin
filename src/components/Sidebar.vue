@@ -24,9 +24,10 @@
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 const route = useRoute()
-const active = route.path
+const active = computed(() => route.path)
 </script>
 
 <style scoped>

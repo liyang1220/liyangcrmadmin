@@ -24,6 +24,7 @@ import { fetchCustomers } from '@/api/crm'
 import { ElMessage, ElMessageBox } from 'element-plus'
 
 const customers = ref<any[]>([])
+const allCustomers = ref<any[]>([])
 const keyword = ref('')
 
 async function load() {
@@ -31,7 +32,9 @@ async function load() {
     // 示例：后端应返回数据数组
     const res = await fetchCustomers()
     // 若后端返回包装：res.data，按实际调整
-    customers.value = Array.isArray(res) ? res : res?.data || []
+    const data = Array.isArray(res) ? res : res?.data || []
+    allCustomers.value = data
+    customers.value = data
   } catch (e) {
     console.error(e)
   }
@@ -41,10 +44,10 @@ function search() {
   // 简单本地过滤示例
   const kw = keyword.value.trim().toLowerCase()
   if (!kw) {
-    load()
+    customers.value = allCustomers.value
     return
   }
-  customers.value = customers.value.filter(c => (c.name || '').toLowerCase().includes(kw) || (c.company || '').toLowerCase().includes(kw))
+  customers.value = allCustomers.value.filter(c => (c.name || '').toLowerCase().includes(kw) || (c.company || '').toLowerCase().includes(kw))
 }
 
 function view(row: any) {
@@ -66,10 +69,12 @@ function remove(row: any) {
 
 onMounted(() => {
   // 临时 mock 数据（如果后端未接）
-  customers.value = [
+  const mockData = [
     { id: 1, name: '张三', company: '示例公司A', phone: '13800000001', email: 'zhangsan@example.com' },
     { id: 2, name: '李四', company: '示例公司B', phone: '13800000002', email: 'lisi@example.com' }
   ]
+  allCustomers.value = mockData
+  customers.value = mockData
   // 若要请求真实数据，请启用 load()
   // load()
 })
