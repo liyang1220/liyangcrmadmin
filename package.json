@@ -1,0 +1,27 @@
+{
+  "name": "liyangcrmadmin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint --ext .ts,.tsx,.vue src"
+  },
+  "dependencies": {
+    "axios": "^1.12.0",
+    "element-plus": "^2.3.0",
+    "pinia": "^2.0.34",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "@vitejs/plugin-vue": "^4.2.0",
+    "eslint": "^8.0.0",
+    "eslint-plugin-vue": "^9.0.0",
+    "sass": "^1.66.0"
+  }
+}
