@@ -97,7 +97,9 @@ export const useCustomerStore = defineStore('customer', () => {
   }
 
   const addCustomer = (customer: Omit<Customer, 'id'>) => {
-    const newId = Math.max(...customers.value.map(c => c.id), 0) + 1
+    // Use reduce for safer ID generation with large arrays
+    const maxId = customers.value.reduce((max, c) => Math.max(max, c.id), 0)
+    const newId = maxId + 1
     customers.value.push({ id: newId, ...customer })
     return newId
   }

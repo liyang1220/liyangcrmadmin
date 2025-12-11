@@ -84,21 +84,21 @@ const handleSearch = () => {
 }
 
 const handleView = (customer: Customer) => {
+  // Use a safe approach without dangerouslyUseHTMLString
+  const details = [
+    `ID: ${customer.id}`,
+    `姓名: ${customer.name}`,
+    `邮箱: ${customer.email}`,
+    `电话: ${customer.phone}`,
+    `公司: ${customer.company}`,
+    `状态: ${customer.status === 'active' ? '活跃' : '非活跃'}`,
+    `创建时间: ${customer.createdAt}`
+  ].join('\n')
+  
   ElMessageBox.alert(
-    `
-    <div style="text-align: left;">
-      <p><strong>ID:</strong> ${customer.id}</p>
-      <p><strong>姓名:</strong> ${customer.name}</p>
-      <p><strong>邮箱:</strong> ${customer.email}</p>
-      <p><strong>电话:</strong> ${customer.phone}</p>
-      <p><strong>公司:</strong> ${customer.company}</p>
-      <p><strong>状态:</strong> ${customer.status === 'active' ? '活跃' : '非活跃'}</p>
-      <p><strong>创建时间:</strong> ${customer.createdAt}</p>
-    </div>
-    `,
+    details,
     '客户详情',
     {
-      dangerouslyUseHTMLString: true,
       confirmButtonText: '关闭'
     }
   )
