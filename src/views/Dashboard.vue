@@ -156,10 +156,6 @@ const todos = ref([
 </script>
 
 <style scoped>
-.dashboard {
-  padding: 20px;
-}
-
 .stat-card {
   margin-bottom: 20px;
 }
