@@ -70,7 +70,7 @@ const leads = ref([
 ])
 
 const getStatusType = (status: string) => {
-  const types: Record<string, any> = {
+  const types: Record<string, 'info' | 'success' | 'warning' | 'danger'> = {
     new: 'info',
     contacted: 'warning',
     qualified: 'success',

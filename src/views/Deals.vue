@@ -92,7 +92,7 @@ const deals = ref([
 ])
 
 const getStageType = (stage: string) => {
-  const types: Record<string, any> = {
+  const types: Record<string, 'info' | 'success' | 'warning' | 'danger' | 'primary'> = {
     qualification: 'info',
     proposal: 'warning',
     negotiation: 'primary',
