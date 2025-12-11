@@ -33,7 +33,7 @@
         <el-table-column prop="expectedCloseDate" label="预计成交日期" width="130" />
         <el-table-column prop="createdAt" label="创建时间" width="120" />
         <el-table-column label="操作" width="180" fixed="right">
-          <template #default="{ row }">
+          <template #default="{ row: _row }">
             <el-button type="primary" size="small" text>查看</el-button>
             <el-button type="primary" size="small" text>编辑</el-button>
             <el-button type="danger" size="small" text>删除</el-button>

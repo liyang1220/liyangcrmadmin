@@ -24,7 +24,7 @@
         </el-table-column>
         <el-table-column prop="createdAt" label="创建时间" width="120" />
         <el-table-column label="操作" width="200" fixed="right">
-          <template #default="{ row }">
+          <template #default="{ row: _row }">
             <el-button type="primary" size="small" text>查看</el-button>
             <el-button type="primary" size="small" text>编辑</el-button>
             <el-button type="success" size="small" text>转化</el-button>
